@@ -25,7 +25,11 @@
   "homepage": "https://github.com/ahdinosaur/simple-rc#readme",
   "dependencies": {
     "deep-assign": "^2.0.0",
+    "defined": "^1.0.0",
     "get-in": "^2.0.0",
+    "load-pkg": "^3.0.1",
+    "lodash.merge": "^3.3.2",
+    "lodash.uniq": "^3.2.2",
     "minimist": "^1.2.0"
   },
   "devDependencies": {

@@ -2,18 +2,37 @@ const join = require('path').join
 const deepAssign = require('deep-assign')
 const getIn = require('get-in')
 const minimist = require('minimist')
+const loadPackage = require('load-pkg')
+const defined = require('defined')
+const Path = require('path')
+const merge = require('lodash.merge')
+const uniq = require('lodash.uniq')
 
 module.exports = getConfig
 
-function getConfig (configDirs, argvPath) {
-  if (!Array.isArray(configDirs)) {
-    configDirs = [configDirs]
+function getConfig (options) {
+  options = merge(
+    loadPackage.sync().rc,
+    options,
+    function (a, b) {
+      if (Array.isArray(a)) {
+        return a.concat(b)
+      }
+    }
+  )
+
+  options.files = defined(options.files, [])
+  if (!Array.isArray(options.files)) {
+    options.files = [options.files]
   }
+  options.files = uniq(options.files.map(function (path) {
+    return Path.resolve(process.cwd(), path)
+  }))
 
   const config = {}
 
-  assignArgs(config, process.argv, argvPath)
-  configDirs.forEach(assignConfigFromDir.bind(null, config))
+  assignArgs(config, process.argv, options.path)
+  options.files.forEach(assignConfigFromDir.bind(null, config))
 
   return config
 }
