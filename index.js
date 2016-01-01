@@ -22,19 +22,38 @@ function assignArgs (config, argv, path) {
   if (path == null) { path = [] }
   var configAtPath = getIn(config, path)
   var args = minimist(argv.slice(2))
+  // we don't want the positional arguments
   delete args._
   deepAssign(configAtPath, args)
   return config
 }
 
 function assignConfigFromDir (config, dir) {
+  deepAssign(config,
+    tryRequire(join(dir), {})
+  )
   const nodeEnv = getNodeEnv()
-  const defaults = require(join(dir, 'defaults'))
-  const envConfig = require(join(dir, nodeEnv))
-  deepAssign(config, defaults, envConfig)
+  if (nodeEnv != null) {
+    deepAssign(config,
+      tryRequire(join(dir, nodeEnv), {})
+    )
+  }
   return config
 }
 
 function getNodeEnv () {
-  return process.env.NODE_ENV || 'development'
+  return process.env.NODE_ENV
+}
+
+// TODO split into `tryToRequire` module
+function tryRequire (path, fallback) {
+  try {
+    return require(path)
+  } catch (err) {
+    if (err.code === "MODULE_NOT_FOUND") {
+      return fallback
+    } else {
+      throw err
+    }
+  }
 }
