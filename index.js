@@ -13,7 +13,7 @@ module.exports = getConfig
 function getConfig (options) {
   options = merge(
     loadPackage.sync().rc,
-    options,
+    defined(options, {}),
     function (a, b) {
       if (Array.isArray(a)) {
         return a.concat(b)
