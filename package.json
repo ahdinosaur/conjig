@@ -3,8 +3,19 @@
   "version": "1.0.0",
   "description": "simple app configuration loader",
   "main": "index.js",
+  "browser": "browser.js",
   "scripts": {
     "test": "tape test/*.js"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "evalify",
+        {
+          "files": "**/browser.js"
+        }
+      ]
+    ]
   },
   "repository": {
     "type": "git",
@@ -26,6 +37,7 @@
   "dependencies": {
     "deep-assign": "^2.0.0",
     "defined": "^1.0.0",
+    "evalify": "github:ahdinosaur/evalify#minimatch",
     "get-in": "^2.0.0",
     "load-pkg": "^3.0.1",
     "lodash.merge": "^3.3.2",
