@@ -2,7 +2,8 @@ const join = require('path').join
 const deepAssign = require('deep-assign')
 const getIn = require('get-in')
 const minimist = require('minimist')
-const loadPackage = require('load-pkg')
+const callerPath = require('caller-path')
+const pkgConf = require('pkg-conf')
 const defined = require('defined')
 const Path = require('path')
 const merge = require('lodash.merge')
@@ -11,8 +12,12 @@ const uniq = require('lodash.uniq')
 module.exports = getConfig
 
 function getConfig (options) {
+  const pkgOptions = pkgConf.sync('rc', callerPath())
+  const cwd = Path.dirname(pkgConf.filepath(pkgOptions))
+
   options = merge(
-    loadPackage.sync().rc,
+    {},
+    pkgOptions,
     defined(options, {}),
     function (a, b) {
       if (Array.isArray(a)) {
@@ -26,7 +31,7 @@ function getConfig (options) {
     options.files = [options.files]
   }
   options.files = uniq(options.files.map(function (path) {
-    return Path.resolve(process.cwd(), path)
+    return Path.resolve(cwd, path)
   }))
 
   const config = {}
