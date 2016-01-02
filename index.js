@@ -8,6 +8,7 @@ const defined = require('defined')
 const Path = require('path')
 const merge = require('lodash.merge')
 const uniq = require('lodash.uniq')
+const render = require('es6-template').render
 
 module.exports = getConfig
 
@@ -16,7 +17,7 @@ function getConfig (options) {
   const cwd = Path.dirname(pkgConf.filepath(pkgOptions))
 
   options = merge(
-    {},
+    { env: deepAssign({}, process.env) },
     pkgOptions,
     defined(options, {}),
     function (a, b) {
@@ -30,14 +31,15 @@ function getConfig (options) {
   if (!Array.isArray(options.files)) {
     options.files = [options.files]
   }
-  options.files = uniq(options.files.map(function (path) {
+  options.files = uniq(options.files.map(function (pathTemplate) {
+    const path = render(pathTemplate, options.env)
     return Path.resolve(cwd, path)
   }))
 
   const config = {}
 
   assignArgs(config, process.argv, options.path)
-  options.files.forEach(assignConfigFromDir.bind(null, config))
+  options.files.forEach(assignConfigFromFile.bind(null, config))
 
   return config
 }
@@ -52,16 +54,10 @@ function assignArgs (config, argv, path) {
   return config
 }
 
-function assignConfigFromDir (config, dir) {
+function assignConfigFromFile (config, file) {
   deepAssign(config,
-    tryRequire(join(dir), {})
+    tryRequire(join(file), {})
   )
-  const nodeEnv = getNodeEnv()
-  if (nodeEnv != null) {
-    deepAssign(config,
-      tryRequire(join(dir, nodeEnv), {})
-    )
-  }
   return config
 }
 
