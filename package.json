@@ -1,7 +1,7 @@
 {
   "name": "simple-rc",
   "version": "1.0.0",
-  "description": "simple app configuration loader",
+  "description": "a simple configuration loader",
   "main": "index.js",
   "browser": "browser.js",
   "scripts": {
