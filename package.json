@@ -12,7 +12,7 @@
       [
         "evalify",
         {
-          "files": "**/browser.js"
+          "files": "**/browser-config.js"
         }
       ]
     ]
