@@ -53,3 +53,19 @@ module.exports = require('simple-rc')()
   }
 }
 ```
+
+to use in the `browser`, we recommend [`browserify`](http://browserify.org) and [`evalify`](https://www.npmjs.com/package/evalify) transform.
+
+in your package.json, add
+
+```json
+{
+  "browserify": {
+    "transform": [
+      [ "evalify", { "files": "config.js" } ]
+    ]
+  }
+}
+```
+
+then when you `require` your `config.js` file from within your browser code, it will be exported as only the evaluated object.

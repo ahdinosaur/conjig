@@ -1,21 +1,10 @@
 {
   "name": "simple-rc",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a simple configuration loader",
   "main": "index.js",
-  "browser": "browser.js",
   "scripts": {
     "test": "tape test/*.js"
-  },
-  "browserify": {
-    "transform": [
-      [
-        "evalify",
-        {
-          "files": "**/browser-config.js"
-        }
-      ]
-    ]
   },
   "repository": {
     "type": "git",
@@ -39,7 +28,6 @@
     "deep-assign": "^2.0.0",
     "defined": "^1.0.0",
     "es6-template": "^1.0.3",
-    "evalify": "github:ahdinosaur/evalify#minimatch",
     "get-in": "^2.0.0",
     "lodash.merge": "^3.3.2",
     "lodash.uniq": "^3.2.2",
