@@ -13,7 +13,9 @@ const render = require('es6-template').render
 module.exports = getConfig
 
 function getConfig (options) {
-  const pkgOptions = pkgConf.sync('rc', callerPath())
+  const pkgOptions = pkgConf.sync('rc', {
+    cwd: callerPath()
+  })
   const cwd = Path.dirname(pkgConf.filepath(pkgOptions))
 
   options = merge(
