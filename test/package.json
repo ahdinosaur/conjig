@@ -1,5 +1,5 @@
 {
-  "rc": {
+  "minrc": {
     "files": [
       "./config/${NODE_ENV}"
     ]

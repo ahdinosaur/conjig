@@ -1,5 +1,5 @@
 {
-  "name": "simple-rc",
+  "name": "minrc",
   "version": "1.0.3",
   "description": "a simple configuration loader",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ahdinosaur/simple-rc.git"
+    "url": "git+https://github.com/ahdinosaur/minrc.git"
   },
   "keywords": [
     "rc",
@@ -20,9 +20,9 @@
   "author": "Mikey <michael.williams@enspiral.com> (http://dinosaur.os)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ahdinosaur/simple-rc/issues"
+    "url": "https://github.com/ahdinosaur/minrc/issues"
   },
-  "homepage": "https://github.com/ahdinosaur/simple-rc#readme",
+  "homepage": "https://github.com/ahdinosaur/minrc#readme",
   "dependencies": {
     "deep-assign": "^2.0.0",
     "defined": "^1.0.0",

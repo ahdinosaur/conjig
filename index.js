@@ -14,7 +14,7 @@ module.exports = getConfig
 function getConfig (options) {
   const cwd = process.cwd()
   const pkg = readPkg.sync({ cwd })
-  const pkgOptions = pkg && pkg['rc'] || {}
+  const pkgOptions = pkg && pkg['minrc'] || {}
 
   options = merge(
     { env: deepAssign({}, process.env) },
