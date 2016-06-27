@@ -12,7 +12,8 @@ const render = require('es6-template').render
 module.exports = getConfig
 
 function getConfig (options) {
-  const cwd = process.cwd()
+  options = defined(options, {})
+  const cwd = defined(options.cwd, process.cwd())
   const pkg = readPkg.sync({ cwd })
   const pkgOptions = pkg && pkg['minrc'] || {}
 
