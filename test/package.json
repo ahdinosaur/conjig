@@ -1,0 +1,7 @@
+{
+  "rc": {
+    "files": [
+      "./config/${NODE_ENV}"
+    ]
+  }
+}

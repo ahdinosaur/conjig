@@ -2,8 +2,7 @@ const join = require('path').join
 const deepAssign = require('deep-assign')
 const getIn = require('get-in')
 const minimist = require('minimist')
-const callerPath = require('caller-path')
-const pkgConf = require('pkg-conf')
+const readPkg = require('read-closest-package')
 const defined = require('defined')
 const Path = require('path')
 const merge = require('lodash.merge')
@@ -13,10 +12,9 @@ const render = require('es6-template').render
 module.exports = getConfig
 
 function getConfig (options) {
-  const pkgOptions = pkgConf.sync('rc', {
-    cwd: callerPath()
-  })
-  const cwd = Path.dirname(pkgConf.filepath(pkgOptions))
+  const cwd = process.cwd()
+  const pkg = readPkg.sync({ cwd })
+  const pkgOptions = pkg && pkg['rc'] || {}
 
   options = merge(
     { env: deepAssign({}, process.env) },

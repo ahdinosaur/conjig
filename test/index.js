@@ -4,21 +4,25 @@ const deepAssign = require('deep-assign')
 
 const getConfig = require('../')
 
-test('getConfig("./config") with NODE_ENV not found', (t) => {
-  process.env.NODE_ENV = 'notarealnodeenv'
-  const actual = getConfig({ files: join(__dirname, 'config') })
+test('getConfig("./config/${NODE_ENV}") with no NODE_ENV', (t) => {
+  const actual = getConfig({ files: join(__dirname, 'config', '${NODE_ENV}') })
   const expected = require(join(__dirname, 'config'))
   t.deepEqual(actual, expected, 'correct value')
   t.end()
 })
 
-test('getConfig("./config") with NODE_ENV', (t) => {
+test('getConfig("./config/${NODE_ENV}") with bad NODE_ENV', (t) => {
+  process.env.NODE_ENV = 'notarealnodeenv'
+  const actual = getConfig({ files: join(__dirname, 'config', '${NODE_ENV}') })
+  const expected = {}
+  t.deepEqual(actual, expected, 'correct value')
+  t.end()
+})
+
+test('getConfig("./config/${NODE_ENV}") with good NODE_ENV', (t) => {
   process.env.NODE_ENV = 'test'
-  const actual = getConfig({ files: join(__dirname, 'config') })
-  const expected = deepAssign(
-    require(join(__dirname, 'config')),
-    require(join(__dirname, 'config', 'test'))
-  )
+  const actual = getConfig({ files: join(__dirname, 'config', '${NODE_ENV}') })
+  const expected = require(join(__dirname, 'config', 'test'))
   t.deepEqual(actual, expected, 'correct value')
   t.end()
 })
