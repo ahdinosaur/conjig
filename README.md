@@ -1,6 +1,6 @@
 # conjig [![stability][0]][1]
-[![npm version][2]][3] [![build status][4]][5] [![test coverage][6]][7]
-[![downloads][8]][9] [![js-standard-style][10]][11]
+[![npm version][2]][3] [![build status][4]][5]
+[![downloads][6]][7] [![js-standard-style][8]][9]
 
 a minimal [universal](#browser) configuration loader
 
@@ -115,9 +115,7 @@ limitations under the License.
 [3]: https://npmjs.org/package/conjig
 [4]: https://img.shields.io/travis/ahdinosaur/conjig/master.svg?style=flat-square
 [5]: https://travis-ci.org/ahdinosaur/conjig
-[6]: https://img.shields.io/codecov/c/github/ahdinosaur/conjig/master.svg?style=flat-square
-[7]: https://codecov.io/github/ahdinosaur/conjig
-[8]: http://img.shields.io/npm/dm/conjig.svg?style=flat-square
-[9]: https://npmjs.org/package/conjig
-[10]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
-[11]: https://github.com/feross/standard
+[6]: http://img.shields.io/npm/dm/conjig.svg?style=flat-square
+[8]: https://npmjs.org/package/conjig
+[8]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
+[9]: https://github.com/feross/standard
