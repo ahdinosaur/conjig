@@ -1,4 +1,6 @@
-# conjig
+# conjig [![stability][0]][1]
+[![npm version][2]][3] [![build status][4]][5] [![test coverage][6]][7]
+[![downloads][8]][9] [![js-standard-style][10]][11]
 
 a minimal configuration loader
 
@@ -14,23 +16,19 @@ npm install --save conjig
 
 ## what
 
-given a list of file paths,
+you want to synchronously load a configuration object.
 
-- an empty config object is created
-- each file path is rendered as a template string with `process.env` passed as local variables
-- the contents of each file path is read synchronously
-- the contents are assigned deeply into the config object
-- the config object is returned
+the configuration should be composed of many sources.
 
-## usage
+## example
 
 pass options in js
 
 ```js
 // config.js
-const join = require('path').join
+const getConfig = require('conjig')
 
-module.exports = require('conjig')({
+module.exports = getConfig({
   files: [
     "./config/${NODE_ENV}",
     "./config"
@@ -42,7 +40,9 @@ or in package.json
 
 ```js
 // config.js
-module.exports = require('conjig')()
+const getConfig = require('conjig')
+
+module.exports = getConfig()
 ```
 
 ```json
@@ -56,7 +56,22 @@ module.exports = require('conjig')()
 }
 ```
 
-to use in the `browser`, we recommend [`browserify`](http://browserify.org) and [`evalify`](https://www.npmjs.com/package/evalify) transform.
+## usage
+
+### `getConfig = require('conjig')`
+
+### `config = getConfig(options)`
+
+`options` is an object with:
+
+- `sources`: an array of filenames
+  - may include template string variables from `process.env`
+
+`config` is an object deeply merged with all config objects in sources.
+
+## browser
+
+to use in the `browser`, use the [`browserify`](http://browserify.org) compiler.
 
 in your package.json, add
 
@@ -64,13 +79,13 @@ in your package.json, add
 {
   "browserify": {
     "transform": [
-      [ "evalify", { "files": "config.js" } ]
+      "conjig/transform"
     ]
   }
 }
 ```
 
-then when you `require` your `config.js` file from within your browser code, it will be exported as only the evaluated object.
+then when you call `require('conjig')()` in the browser, it transforms to the result in node during compilation.
 
 ## license
 
