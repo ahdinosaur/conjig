@@ -28,11 +28,11 @@ function getConfig (options) {
     }
   )
 
-  options.files = defined(options.files, [])
-  if (!Array.isArray(options.files)) {
-    options.files = [options.files]
+  options.sources = defined(options.sources, [])
+  if (!Array.isArray(options.sources)) {
+    options.sources = [options.sources]
   }
-  options.files = uniq(options.files.map(function (pathTemplate) {
+  options.sources = uniq(options.sources.map(function (pathTemplate) {
     const path = render(pathTemplate, options.env)
     return Path.resolve(cwd, path)
   }))
@@ -40,7 +40,7 @@ function getConfig (options) {
   const config = {}
 
   assignArgs(config, process.argv, options.path)
-  options.files.forEach(assignConfigFromFile.bind(null, config))
+  options.sources.forEach(assignConfigFromFile.bind(null, config))
 
   return config
 }

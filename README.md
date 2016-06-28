@@ -29,7 +29,7 @@ pass options in js
 const getConfig = require('conjig')
 
 module.exports = getConfig({
-  files: [
+  sources: [
     "./config/${NODE_ENV}",
     "./config"
   ]
@@ -48,7 +48,7 @@ module.exports = getConfig()
 ```json
 {
   "conjig": {
-    "files": [
+    "sources": [
       "./config/${NODE_ENV}",
       "./config"
     ]
