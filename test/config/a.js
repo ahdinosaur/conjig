@@ -1,3 +1,3 @@
 module.exports = {
-  a: Symbol('a')
+  a: 'A'
 }

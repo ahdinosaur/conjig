@@ -5,6 +5,10 @@ const bufferList = require('bl')
 const createTranspiler = require('transpilify')
 
 test('transform transpiles through', function (t) {
+
+  const cwd = process.cwd()
+  process.chdir(__dirname)
+
   const transpiler = createTranspiler({
     transform: [require('../transform')],
     basedir: __dirname
@@ -17,6 +21,8 @@ test('transform transpiles through', function (t) {
       t.notOk(err, 'no error')
       const actual = data.toString()
       t.equal(actual, expected, 'sink is transformed source')
+
+      process.chdir(cwd)
       t.end()
     }))
 })
