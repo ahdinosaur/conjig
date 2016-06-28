@@ -116,6 +116,6 @@ limitations under the License.
 [4]: https://img.shields.io/travis/ahdinosaur/conjig/master.svg?style=flat-square
 [5]: https://travis-ci.org/ahdinosaur/conjig
 [6]: http://img.shields.io/npm/dm/conjig.svg?style=flat-square
-[8]: https://npmjs.org/package/conjig
+[7]: https://npmjs.org/package/conjig
 [8]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
 [9]: https://github.com/feross/standard
