@@ -4,6 +4,18 @@
 
 a minimal configuration loader
 
+```shell
+npm install --save conjig
+```
+
+## what
+
+you want to synchronously load a configuration object.
+
+the configuration should be composed of many sources.
+
+[![dna](https://upload.wikimedia.org/wikipedia/commons/8/87/DNA_orbit_animated_small.gif)](https://commons.wikimedia.org/wiki/File%3ADNA_orbit_animated_small.gif)
+
 ## install
 
 with [npm](https://www.npmjs.com), run
@@ -11,14 +23,6 @@ with [npm](https://www.npmjs.com), run
 ```shell
 npm install --save conjig
 ```
-
-[![dna](https://upload.wikimedia.org/wikipedia/commons/8/87/DNA_orbit_animated_small.gif)](https://commons.wikimedia.org/wiki/File%3ADNA_orbit_animated_small.gif)
-
-## what
-
-you want to synchronously load a configuration object.
-
-the configuration should be composed of many sources.
 
 ## example
 
