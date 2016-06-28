@@ -1,7 +1,7 @@
 {
   "name": "conjig",
   "version": "2.0.1",
-  "description": "a simple configuration loader",
+  "description": "a minimal universal configuration loader",
   "main": "index.js",
   "scripts": {
     "test": "tape test/*.js"

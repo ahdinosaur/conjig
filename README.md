@@ -2,7 +2,7 @@
 [![npm version][2]][3] [![build status][4]][5] [![test coverage][6]][7]
 [![downloads][8]][9] [![js-standard-style][10]][11]
 
-a minimal configuration loader
+a minimal [universal](#browser) configuration loader
 
 ```shell
 npm install --save conjig
