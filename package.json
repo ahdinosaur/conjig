@@ -1,5 +1,5 @@
 {
-  "name": "minrc",
+  "name": "conjig",
   "version": "1.0.3",
   "description": "a simple configuration loader",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ahdinosaur/minrc.git"
+    "url": "git+https://github.com/ahdinosaur/conjig.git"
   },
   "keywords": [
     "rc",
@@ -20,9 +20,9 @@
   "author": "Mikey <michael.williams@enspiral.com> (http://dinosaur.os)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ahdinosaur/minrc/issues"
+    "url": "https://github.com/ahdinosaur/conjig/issues"
   },
-  "homepage": "https://github.com/ahdinosaur/minrc#readme",
+  "homepage": "https://github.com/ahdinosaur/conjig#readme",
   "dependencies": {
     "bl": "^1.1.2",
     "deep-assign": "^2.0.0",

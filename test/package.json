@@ -1,7 +1,8 @@
 {
-  "minrc": {
+  "conjig": {
     "files": [
-      "./config/${NODE_ENV}"
+      "./config/a",
+      "./config/b"
     ]
   }
 }

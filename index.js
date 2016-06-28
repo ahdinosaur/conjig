@@ -15,7 +15,7 @@ function getConfig (options) {
   options = defined(options, {})
   const cwd = defined(options.cwd, process.cwd())
   const pkg = readPkg.sync({ cwd })
-  const pkgOptions = pkg && pkg['minrc'] || {}
+  const pkgOptions = pkg && pkg['conjig'] || {}
 
   options = merge(
     { env: deepAssign({}, process.env) },

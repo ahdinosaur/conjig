@@ -1,3 +1,3 @@
-const getConfig = require('minrc')
+const getConfig = require('conjig')
 
 console.log(getConfig())

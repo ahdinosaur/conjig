@@ -7,7 +7,7 @@ module.exports = createTransform
 
 function createTransform (filename, options) {
   return staticModule({
-    minrc: function (options) {
+    conjig: function (options) {
       const config = getConfig(options)
       return fromString(
         JSON.stringify(
