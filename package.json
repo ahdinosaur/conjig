@@ -1,6 +1,6 @@
 {
   "name": "conjig",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "a simple configuration loader",
   "main": "index.js",
   "scripts": {
