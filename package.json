@@ -4,7 +4,8 @@
   "description": "a minimal universal configuration loader",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/*.js"
+    "link": "npm link && npm link conjig",
+    "test": "npm run link && tape test/*.js"
   },
   "repository": {
     "type": "git",
