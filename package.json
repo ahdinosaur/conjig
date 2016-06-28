@@ -17,8 +17,8 @@
     "env",
     "environment"
   ],
-  "author": "Mikey <michael.williams@enspiral.com> (http://dinosaur.os)",
-  "license": "ISC",
+  "author": "Mikey <michael.williams@enspiral.com> (http://dinosaur.is)",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/ahdinosaur/conjig/issues"
   },
